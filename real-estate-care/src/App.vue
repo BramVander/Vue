@@ -1,16 +1,14 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Real Estate Care" name="Bram Vander" />
+  <vacation-picker />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import VacationPicker from "./components/VacationPicker.vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
+  components: { VacationPicker },
 };
 </script>
 
