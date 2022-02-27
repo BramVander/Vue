@@ -46,6 +46,9 @@
         <li class="list-group-item" v-if="isExpensive">
           <span class="badge bg-secondary">Expensive!</span>
         </li>
+        <li class="list-group-item" v-if="isOnSale">
+          <span class="badge bg-secondary">Sale!</span>
+        </li>
       </ul>
     </div>
 
@@ -130,6 +133,10 @@ export default {
 
     isExpensive() {
       return this.countryData.countries[this.selectedCountryIndex].cost > 4000;
+    },
+
+    isOnSale() {
+      return this.countryData.countries[this.selectedCountryIndex].cost < 1000;
     },
   },
 

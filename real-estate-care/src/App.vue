@@ -1,14 +1,16 @@
 <template>
   <img alt="REC logo" src="./assets/logo.png" />
-  <Vacation-picker />
+  <!-- <Vacation-picker /> -->
+  <Document-list />
 </template>
 
 <script>
-import VacationPicker from "@/components/VacationPicker";
+// import VacationPicker from "@/components/VacationPicker";
+import DocumentList from "@/components/DocumentList";
 
 export default {
   name: "App",
-  components: { VacationPicker },
+  components: { DocumentList },
 };
 </script>
 
@@ -29,6 +31,6 @@ export default {
 }
 
 #app {
-  background-color: var(--cyan);
+  background-color: var(--gradientLight);
 }
 </style>
