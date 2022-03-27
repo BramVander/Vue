@@ -11,8 +11,8 @@
           {{ document.name }}
         </div>
         <div class="btn-container">
-          <button class="btn">Upload</button>
-          <button class="btn">Delete</button>
+          <button class="btn" @click="openModal">Inzien</button>
+          <button class="btn">Edit</button>
         </div>
       </div>
     </div>
@@ -28,8 +28,14 @@ export default {
   data() {
     return {
       documentList,
-      title: "Kies een handleiding",
     };
+  },
+
+  methods: {
+    openModal(e) {
+      e.preventDefault();
+      console.log(`modal opened`);
+    },
   },
 };
 </script>

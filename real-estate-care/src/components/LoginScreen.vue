@@ -2,22 +2,14 @@
   <div class="container">
     <h1>Welkom!</h1>
     <p>Log in met je gegevens om verder te gaan.</p>
+    <i class="bi bi-eye-fill">asdf</i>
     <div class="card">
       <div>
         <form id="form-login" action="">
           <label for="user">Gegevens monteur</label>
-          <input
-            id="user"
-            class="input"
-            type="number"
-            placeholder="# Personeelsnr"
-          />
+          <input id="user" type="number" placeholder="# Personeelsnr" />
           <label for="pin"></label>
           <input id="pin" class="input" type="password" placeholder="# Pin" />
-          <label class="label-checkbox" for="remember"
-            ><input id="remember" type="checkbox" checked="checked" />Onthoud
-            mij</label
-          >
         </form>
       </div>
       <div>
@@ -61,68 +53,11 @@ export default {
 };
 </script>
 
-<style>
-.container {
-  background-color: #f1f2f3;
-  border-radius: 0.25rem;
-  margin-block: 1rem;
-  padding: 1rem;
-  text-align: center;
-}
-
-.card {
-  margin-block: 1rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: row !important;
-  text-align: left;
-}
-
+<style scoped>
 form {
   display: flex;
   flex-direction: column;
   margin-inline-end: 1rem;
-}
-
-.input {
-  border: 1px solid var(--cyan);
-  border-radius: 0.25rem;
-  color: var(--cyan);
-  margin-block: 0.25rem;
-  padding: 0.25rem;
-  font-weight: 700;
-}
-
-.label-checkbox {
-  padding-block-start: 10px;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-}
-
-#remember {
-  margin-inline-end: 10px;
-}
-
-/* doesnt recognize checkbox color
-#remember:checked {
-  background-color: var(--cyan) !important;
-}
- */
-
-.btn {
-  border-radius: 5%;
-  border: 3px solid var(--cyan) !important;
-  background-color: var(--cyan) !important;
-  color: white !important;
-  font-weight: 700 !important;
-}
-
-.btn:hover {
-  border: 3px solid var(--cyan);
-  background-color: white !important;
-  color: var(--cyan) !important;
 }
 
 .btn-login {

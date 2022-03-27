@@ -2,28 +2,33 @@ const documentList = {
   documents: [
     {
       id: 1,
-      name: "Document-1",
-      file: "document-1.pdf",
+      name: "Normbladen",
+      file: "normbladen.pdf",
     },
     {
       id: 2,
-      name: "Document-2",
-      file: "document-2.pdf",
+      name: "Testprocedures",
+      file: "testprocedures.pdf",
     },
     {
       id: 3,
-      name: "Document-3",
-      file: "document-3.pdf",
+      name: "Handleiding",
+      file: "handleiding.pdf",
     },
     {
       id: 4,
-      name: "Document-4",
-      file: "document-4.pdf",
+      name: "Veiligheidsprocedures",
+      file: "veiligheidsprocedures.pdf",
     },
     {
       id: 5,
-      name: "Document-5",
-      file: "document-5.pdf",
+      name: "Checklist",
+      file: "checklist.pdf",
+    },
+    {
+      id: 6,
+      name: "Werkwijze",
+      file: "werkwijze.pdf",
     },
   ],
 };

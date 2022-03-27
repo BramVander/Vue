@@ -66,7 +66,7 @@
         </a>
 
         <!-- BEHEER  -->
-        <a class="nav-item" href="" title="Beheer"
+        <a class="nav-item" href="" title="Beheer" @click="changeSettings"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -85,22 +85,24 @@
   </header>
   <Login-screen class="login-screen" />
   <Document-list class="document-list" />
+  <Change-settings class="change-settings" />
 
   <footer>
-    <button>tab1</button>
-    <button>tab1</button>
-    <button>tab1</button>
-    <button>tab1</button>
+    <button>Taken</button>
+    <button>Inzien</button>
+    <button @click="toggleDocumentView">Documenten</button>
+    <button @click="changeSettings">Beheer</button>
   </footer>
 </template>
 
 <script>
 import DocumentList from "@/components/DocumentList";
 import LoginScreen from "@/components/LoginScreen";
+import ChangeSettings from "@/components/ChangeSettings";
 
 export default {
   name: "App",
-  components: { DocumentList, LoginScreen },
+  components: { DocumentList, LoginScreen, ChangeSettings },
 
   methods: {
     toggleDocumentView(e) {
@@ -109,6 +111,14 @@ export default {
       list.style.display == "block"
         ? (list.style.display = "none")
         : (list.style.display = "block");
+    },
+
+    changeSettings(e) {
+      e.preventDefault();
+      const setting = document.querySelector(".change-settings");
+      setting.style.display == "block"
+        ? (setting.style.display = "none")
+        : (setting.style.display = "block");
     },
   },
 };
@@ -132,6 +142,10 @@ export default {
   --gradientDark: #141b1f;
 }
 
+button {
+  width: 25%;
+}
+
 body {
   font-family: "Poppins", sans-serif !important;
   font-weight: 700 !important;
@@ -140,6 +154,32 @@ body {
 
 #app {
   background-color: var(--cyan);
+}
+
+.container {
+  background-color: #f1f2f3;
+  border-radius: 0.25rem;
+  margin-block: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card {
+  margin-block: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row !important;
+  text-align: left;
+}
+
+input {
+  border: 1px solid var(--cyan);
+  border-radius: 0.25rem;
+  color: var(--cyan);
+  margin-block: 0.25rem !important;
+  padding: 0.25rem;
+  font-weight: 700;
 }
 
 /* HEADER HEADER HEADER */
@@ -183,6 +223,11 @@ body {
   display: none;
 }
 
+/* SETTINGS */
+.change-settings {
+  display: none;
+}
+
 /* FOOTER FOOTER FOOTER */
 footer {
   display: flex;
@@ -197,5 +242,19 @@ button {
   flex-grow: 1;
   text-align: center;
   font-weight: 700;
+}
+
+.btn {
+  border-radius: 5%;
+  border: 3px solid var(--cyan) !important;
+  background-color: var(--cyan) !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.btn:hover {
+  border: 3px solid var(--cyan);
+  background-color: white !important;
+  color: var(--cyan) !important;
 }
 </style>
