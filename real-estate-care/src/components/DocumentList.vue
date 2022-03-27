@@ -34,7 +34,7 @@ export default {
   methods: {
     openModal(e) {
       e.preventDefault();
-      console.log(`modal opened`);
+      alert(`modal opened https://vuejs.org/examples/#modal`);
     },
   },
 };

@@ -4,7 +4,7 @@
       <img alt="REC logo" src="./assets/logo.png" />
       <div class="nav-items">
         <!-- UIT TE VOEREN  -->
-        <a class="nav-item" href="" title="Uit te voeren"
+        <a class="nav-item disabled" href="" title="Uit te voeren"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -23,7 +23,7 @@
         </a>
 
         <!-- INZIEN / BEWERKEN  -->
-        <a class="nav-item" href="" title="Inzien / bewerken"
+        <a class="nav-item disabled" href="" title="Inzien / bewerken"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -47,7 +47,7 @@
 
         <!-- DOCUMENTATIE  -->
         <a
-          class="nav-item"
+          class="nav-item disabled"
           href=""
           title="Documentenlijst"
           @click="toggleDocumentView"
@@ -66,7 +66,11 @@
         </a>
 
         <!-- BEHEER  -->
-        <a class="nav-item" href="" title="Beheer" @click="changeSettings"
+        <a
+          class="nav-item disabled"
+          href=""
+          title="Beheer"
+          @click="changeSettings"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -107,7 +111,10 @@ export default {
   methods: {
     toggleDocumentView(e) {
       e.preventDefault();
+      // toDo: store components in elements outside of function
       const list = document.querySelector(".document-list");
+
+      document.querySelector(".change-settings").style.display = "none";
       list.style.display == "block"
         ? (list.style.display = "none")
         : (list.style.display = "block");
@@ -115,7 +122,9 @@ export default {
 
     changeSettings(e) {
       e.preventDefault();
+      // toDo: store components in elements outside of function
       const setting = document.querySelector(".change-settings");
+      document.querySelector(".document-list").style.display = "none";
       setting.style.display == "block"
         ? (setting.style.display = "none")
         : (setting.style.display = "block");
@@ -204,6 +213,12 @@ input {
   margin-inline-end: 1rem;
   text-decoration: none;
   padding: 1rem;
+}
+
+/* disable nav menu buttons before login */
+.disabled {
+  pointer-events: none;
+  cursor: default;
 }
 
 .nav-item:hover {

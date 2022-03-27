@@ -2,7 +2,6 @@
   <div class="container">
     <h1>Welkom!</h1>
     <p>Log in met je gegevens om verder te gaan.</p>
-    <i class="bi bi-eye-fill">asdf</i>
     <div class="card">
       <div>
         <form id="form-login" action="">
@@ -44,10 +43,14 @@ export default {
   methods: {
     logIn(e) {
       e.preventDefault();
+      // remove login screen
       const login = document.querySelector(".login-screen");
-      login.style.display == "flex"
-        ? (login.style.display = "none")
-        : (login.style.display = "none");
+      login.style.display = "none";
+      // enable nav menu buttons
+      const navItems = document.getElementsByClassName("nav-item");
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].classList.remove("disabled");
+      }
     },
   },
 };
