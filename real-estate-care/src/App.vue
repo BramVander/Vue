@@ -206,8 +206,8 @@ footer {
 }
 
 .btn {
-  border-radius: 5%;
-  border: 3px solid var(--cyan) !important;
+  border-radius: 5px;
+  border: 2px solid var(--cyan) !important;
   background-color: var(--cyan) !important;
   color: white !important;
   font-weight: 700 !important;

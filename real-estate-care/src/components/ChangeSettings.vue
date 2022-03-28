@@ -24,6 +24,7 @@
           <label for="password">Wachtwoord</label>
           <input id="password" type="password" placeholder="#Pin" />
           <i id="eye" class="bi bi-eye-fill" @click="togglePassword"></i>
+          <button class="btn" type="submit">Onthoud voorkeur</button>
         </div>
         <div class="form-right">
           <p>Darkmode</p>
@@ -82,6 +83,7 @@ export default {
   align-self: center;
   margin-inline: 20px;
   padding: 5px;
+  width: 100%;
 }
 
 #form-settings {
@@ -109,7 +111,7 @@ export default {
 #eye {
   color: var(--cyan);
   position: absolute;
-  bottom: 28px;
+  bottom: 62px;
   left: 340px;
 }
 
