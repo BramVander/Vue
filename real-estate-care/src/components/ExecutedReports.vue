@@ -1,17 +1,18 @@
 <template>
   <div class="container">
-    <h1>Kies een Document</h1>
+    <h1>Uitgevoerde rapportages</h1>
     <div class="list">
       <div
-        class="document-row"
-        v-for="document in documentList.documents"
-        :key="document.id"
+        class="report-row"
+        v-for="report in executedReports.reports"
+        :key="report.id"
       >
-        <div class="document-container">
-          {{ document.name }}
+        <div class="report-container">
+          {{ report.name }}
         </div>
         <div class="btn-container">
-          <button class="btn" @click="openModal">Inzien</button>
+          <button class="btn">Inzien</button>
+          <button class="btn">Bewerken</button>
         </div>
       </div>
     </div>
@@ -19,22 +20,15 @@
 </template>
 
 <script>
-import documentList from "@/data/DocumentList";
+import executedReports from "@/data/ExecutedReports";
 
 export default {
-  name: "DocumentList",
+  name: "ExecutedReports",
 
   data() {
     return {
-      documentList,
+      executedReports,
     };
-  },
-
-  methods: {
-    openModal(e) {
-      e.preventDefault();
-      alert(`modal opened https://vuejs.org/examples/#modal`);
-    },
   },
 };
 </script>
@@ -46,14 +40,14 @@ export default {
   padding: 5px;
 }
 
-.document-row {
+.report-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--text);
 }
 
-.document-row:hover {
+.report-row:hover {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: 0.25rem;
   padding: 5px;

@@ -43,14 +43,17 @@ export default {
   methods: {
     logIn(e) {
       e.preventDefault();
-      // remove login screen
-      const login = document.querySelector(".login-screen");
-      login.style.display = "none";
+      // check username vs pin
+      const user = document.getElementById("user");
+      const pin = document.getElementById("pin");
+      console.log("user", user.value, "pin", pin.value);
+      // nav to dashboard
+      this.$router.push("dashboard");
       // enable nav menu buttons
-      const navItems = document.getElementsByClassName("nav-item");
-      for (let i = 0; i < navItems.length; i++) {
-        navItems[i].classList.remove("disabled");
-      }
+      // const navItems = document.getElementsByClassName("nav-item");
+      // for (let i = 0; i < navItems.length; i++) {
+      //   navItems[i].classList.remove("disabled");
+      // }
     },
   },
 };

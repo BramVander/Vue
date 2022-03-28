@@ -12,7 +12,7 @@
               id="avatar"
               class="avatar"
             />
-            <button class="btn" @click="changeAvatar">Verander</button>
+            <button class="btn" @click="changeAvatar">Bewerk</button>
           </div>
           <label for="">Personeelsnr</label>
           <input
@@ -81,7 +81,7 @@ export default {
 .btn {
   align-self: center;
   margin-inline: 20px;
-  padding: 0;
+  padding: 5px;
 }
 
 #form-settings {
@@ -109,8 +109,8 @@ export default {
 #eye {
   color: var(--cyan);
   position: absolute;
-  bottom: 24px;
-  left: 360px;
+  bottom: 28px;
+  left: 340px;
 }
 
 #eye:hover {

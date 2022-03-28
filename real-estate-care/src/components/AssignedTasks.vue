@@ -1,17 +1,14 @@
 <template>
   <div class="container">
-    <h1>Kies een Document</h1>
+    <h1>Toegewezen taken</h1>
     <div class="list">
-      <div
-        class="document-row"
-        v-for="document in documentList.documents"
-        :key="document.id"
-      >
-        <div class="document-container">
-          {{ document.name }}
+      <div class="task-row" v-for="task in assignedTasks.tasks" :key="task.id">
+        <div class="task-container">
+          {{ task.name }}
         </div>
         <div class="btn-container">
-          <button class="btn" @click="openModal">Inzien</button>
+          <button class="btn">Inzien</button>
+          <button class="btn">Bewerken</button>
         </div>
       </div>
     </div>
@@ -19,22 +16,15 @@
 </template>
 
 <script>
-import documentList from "@/data/DocumentList";
+import assignedTasks from "@/data/AssignedTasks";
 
 export default {
-  name: "DocumentList",
+  name: "AssignedTasks",
 
   data() {
     return {
-      documentList,
+      assignedTasks,
     };
-  },
-
-  methods: {
-    openModal(e) {
-      e.preventDefault();
-      alert(`modal opened https://vuejs.org/examples/#modal`);
-    },
   },
 };
 </script>
@@ -46,14 +36,14 @@ export default {
   padding: 5px;
 }
 
-.document-row {
+.task-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--text);
 }
 
-.document-row:hover {
+.task-row:hover {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: 0.25rem;
   padding: 5px;
