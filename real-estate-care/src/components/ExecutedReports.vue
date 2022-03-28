@@ -11,7 +11,7 @@
           {{ report.name }}
         </div>
         <div class="btn-container">
-          <button class="btn">Inzien</button>
+          <button class="btn" @click="openModal">Inzien</button>
           <button class="btn">Bewerken</button>
         </div>
       </div>
@@ -29,6 +29,13 @@ export default {
     return {
       executedReports,
     };
+  },
+
+  methods: {
+    openModal(e) {
+      e.preventDefault();
+      alert(`modal opened https://vuejs.org/examples/#modal`);
+    },
   },
 };
 </script>
