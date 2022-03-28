@@ -124,7 +124,6 @@ input {
   background-color: #f1f2f3;
   display: flex;
   align-items: center;
-  padding-inline: 1rem;
 }
 
 .nav-items {
@@ -134,12 +133,17 @@ input {
 }
 
 .nav-item {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--gradientLight);
   color: #f1f2f3;
+  text-decoration: none;
   border: 3px solid var(--gradientLight);
   border-radius: 0.5rem;
   margin-inline-end: 1rem;
-  text-decoration: none;
   padding: 1rem;
 }
 
