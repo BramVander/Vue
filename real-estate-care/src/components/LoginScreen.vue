@@ -16,7 +16,7 @@
           class="btn btn-login"
           form="form-login"
           title="Log in"
-          @click="logIn"
+          @touchEnd="logIn"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

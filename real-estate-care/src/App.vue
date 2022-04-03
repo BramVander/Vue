@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="nav">
-      <img alt="REC logo" src="./assets/logo.png" @click="goHome" />
+      <img alt="REC logo" src="./assets/logo.png" @touchEnd="goHome" />
       <div class="nav-items">
         <!-- UIT TE VOEREN  -->
         <router-link

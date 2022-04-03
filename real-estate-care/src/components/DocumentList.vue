@@ -11,7 +11,7 @@
           {{ document.name }}
         </div>
         <div class="btn-container">
-          <button class="btn" @click="openModal">Inzien</button>
+          <button class="btn" @touchEnd="openModal">Inzien</button>
         </div>
       </div>
     </div>
@@ -31,6 +31,7 @@ export default {
   },
 
   methods: {
+    // open document in modal
     openModal(e) {
       e.preventDefault();
       alert(`modal opened https://vuejs.org/examples/#modal`);

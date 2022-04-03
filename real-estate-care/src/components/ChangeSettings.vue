@@ -12,7 +12,7 @@
               id="avatar"
               class="avatar"
             />
-            <button class="btn" @click="changeAvatar">Bewerk</button>
+            <button class="btn" @touchEnd="changeAvatar">Bewerk</button>
           </div>
           <label for="">Personeelsnr</label>
           <input
@@ -23,7 +23,7 @@
           />
           <label for="password">Wachtwoord</label>
           <input id="password" type="password" placeholder="#Pin" />
-          <i id="eye" class="bi bi-eye-fill" @click="togglePassword"></i>
+          <i id="eye" class="bi bi-eye-fill" @touchEnd="togglePassword"></i>
           <button class="btn" type="submit">Onthoud voorkeur</button>
         </div>
         <div class="form-right">
@@ -48,6 +48,7 @@ export default {
   name: "ChangeSettings",
 
   methods: {
+    // show password after tuching the eye icon
     togglePassword() {
       document.getElementById("password").type == "password"
         ? (document.getElementById("password").type = "text")
@@ -63,6 +64,7 @@ export default {
     },
 
     changeAvatar(e) {
+      // change avatar function
       e.preventDefault();
       console.log(
         `document.getElementById("avatar").setAttribute('src', 'uploaded img path')`
