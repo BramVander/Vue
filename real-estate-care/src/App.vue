@@ -124,16 +124,13 @@ input {
 }
 
 /* HEADER HEADER HEADER */
-#logo {
-  width: 30%;
-}
-
 .nav {
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
+  max-height: 150px;
 }
 
 .nav-item {
