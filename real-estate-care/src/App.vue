@@ -1,34 +1,34 @@
 <template>
   <header>
     <nav class="nav">
-      <img alt="REC logo" src="./assets/logo.png" @touchEnd="goHome" />
-      <div class="nav-items">
-        <!-- UIT TE VOEREN  -->
-        <router-link
-          to="/assigned-tasks"
-          class="nav-item"
-          title="Toegewezen rapportages"
-          ><i class="bi bi-journal"></i>
-        </router-link>
+      <img id="logo" alt="REC logo" src="./assets/logo.png" @click="goHome" />
+      <!-- <div class="nav-items"> -->
+      <!-- UIT TE VOEREN  -->
+      <router-link
+        to="/assigned-tasks"
+        class="nav-item"
+        title="Toegewezen rapportages"
+        ><i class="bi bi-journal"></i>
+      </router-link>
 
-        <!-- INZIEN / BEWERKEN  -->
-        <router-link
-          to="/executed-reports"
-          class="nav-item"
-          title="Uitgevoerde rapportages"
-          ><i class="bi bi-journal-check"></i>
-        </router-link>
+      <!-- INZIEN / BEWERKEN  -->
+      <router-link
+        to="/executed-reports"
+        class="nav-item"
+        title="Uitgevoerde rapportages"
+        ><i class="bi bi-journal-check"></i>
+      </router-link>
 
-        <!-- DOCUMENTATIE  -->
-        <router-link to="/document-list" class="nav-item" title="Documentatie"
-          ><i class="bi bi-info-circle-fill"></i>
-        </router-link>
+      <!-- DOCUMENTATIE  -->
+      <router-link to="/document-list" class="nav-item" title="Documentatie"
+        ><i class="bi bi-info-circle-fill"></i>
+      </router-link>
 
-        <!-- BEHEER  -->
-        <router-link to="/settings" class="nav-item" title="Beheer"
-          ><i class="bi bi-gear-fill"></i>
-        </router-link>
-      </div>
+      <!-- BEHEER  -->
+      <router-link to="/settings" class="nav-item" title="Beheer"
+        ><i class="bi bi-gear-fill"></i>
+      </router-link>
+      <!-- </div> -->
     </nav>
   </header>
   <div class="container">
@@ -36,14 +36,18 @@
   </div>
 
   <footer>
-    <router-link class="btn-bottom" to="/assigned-tasks">Taken</router-link>
+    <router-link class="btn-bottom" to="/assigned-tasks"
+      ><i class="bi bi-journal"></i>
+    </router-link>
     <router-link class="btn-bottom" to="/executed-reports"
-      >Uitgevoerd</router-link
-    >
+      ><i class="bi bi-journal-check"></i>
+    </router-link>
     <router-link class="btn-bottom" to="/document-list"
-      >Documentatie</router-link
-    >
-    <router-link class="btn-bottom" to="/settings">Beheer</router-link>
+      ><i class="bi bi-info-circle-fill"></i>
+    </router-link>
+    <router-link class="btn-bottom" to="/settings"
+      ><i class="bi bi-gear-fill"></i
+    ></router-link>
   </footer>
 </template>
 
@@ -106,7 +110,7 @@ body {
   padding: 1rem;
   display: flex;
   justify-content: center;
-  flex-direction: row !important;
+  flex-direction: row;
   text-align: left;
 }
 
@@ -120,21 +124,19 @@ input {
 }
 
 /* HEADER HEADER HEADER */
-.nav {
-  background-color: #f1f2f3;
-  display: flex;
-  align-items: center;
+#logo {
+  width: 30%;
 }
 
-.nav-items {
+.nav {
+  background-color: white;
   display: flex;
-  justify-content: space-around;
-  width: 70%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .nav-item {
-  width: 75px;
-  height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +150,7 @@ input {
 }
 
 .nav-item:hover {
-  background-color: #f1f2f3;
+  background-color: white;
   color: var(--gradientLight);
   border: 3px solid var(--gradientLight);
 }
@@ -158,8 +160,7 @@ input {
   border-color: var(--cyan);
 }
 .router-link-active:hover {
-  background-color: #f1f2f3;
-  color: var(--gradientLight);
+  color: var(--cyan);
   border: 3px solid var(--cyan);
 }
 
@@ -222,5 +223,20 @@ footer {
 .btn-login {
   display: flex;
   align-items: center;
+}
+
+/* hide logo on small screens */
+@media (max-width: 375px) {
+  #logo {
+    display: none;
+  }
+
+  .nav {
+    justify-content: space-around;
+  }
+
+  .nav-item {
+    margin-inline-end: 0rem;
+  }
 }
 </style>

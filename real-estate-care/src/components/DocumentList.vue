@@ -11,7 +11,7 @@
           {{ document.name }}
         </div>
         <div class="btn-container">
-          <button class="btn" @touchEnd="openModal">Inzien</button>
+          <button class="btn" @click="openModal">Inzien</button>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
           class="btn btn-login"
           form="form-login"
           title="Log in"
-          @touchEnd="logIn"
+          @click="logIn"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,5 +70,13 @@ form {
   height: 100%;
   width: 100%;
   border-radius: 0.5rem !important;
+}
+
+/* media query for mobile */
+@media (max-width: 425px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

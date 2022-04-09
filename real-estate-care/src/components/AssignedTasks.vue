@@ -8,7 +8,7 @@
         </div>
         <div class="btn-container">
           <button class="btn" @click="openModal">Inzien</button>
-          <button class="btn">Bewerken</button>
+          <button class="btn">Edit</button>
         </div>
       </div>
     </div>

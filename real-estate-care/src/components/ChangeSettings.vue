@@ -12,7 +12,7 @@
               id="avatar"
               class="avatar"
             />
-            <button class="btn" @touchEnd="changeAvatar">Bewerk</button>
+            <button class="btn" @click="changeAvatar">Edit</button>
           </div>
           <label for="">Personeelsnr</label>
           <input
@@ -23,7 +23,7 @@
           />
           <label for="password">Wachtwoord</label>
           <input id="password" type="password" placeholder="#Pin" />
-          <i id="eye" class="bi bi-eye-fill" @touchEnd="togglePassword"></i>
+          <i id="eye" class="bi bi-eye-fill" @click="togglePassword"></i>
           <button class="btn" type="submit">Onthoud voorkeur</button>
         </div>
         <div class="form-right">
@@ -112,9 +112,9 @@ export default {
 
 #eye {
   color: var(--cyan);
-  position: absolute;
-  bottom: 62px;
-  left: 340px;
+  position: relative;
+  bottom: 32px;
+  left: 170px;
 }
 
 #eye:hover {
@@ -180,5 +180,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media (max-width: 426px) {
+  #form-settings {
+    flex-direction: column;
+  }
 }
 </style>
