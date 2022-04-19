@@ -27,14 +27,14 @@
 
 <script>
 import assignedTasks from "@/data/AssignedTasks";
-// import ModalList from "./ModalList.vue";
+import ModalList from "./ModalList.vue";
 
 export default {
   name: "AssignedTasks",
 
-  // components: {
-  //   ModalList,
-  // },
+  components: {
+    ModalList,
+  },
 
   data() {
     return {
