@@ -1,18 +1,14 @@
 <template>
   <div class="container">
-    <h1>Toegewezen taken</h1>
+    <h1>Kies een Document</h1>
     <div class="list">
-      <div class="task-row" v-for="task in assignedTasks.tasks" :key="task.id">
-        <div class="task-container">
-          {{ task.name }}
-        </div>
-        <div id="modal" class="modal">
-          <div class="modal-content">
-            <span @click="toggleModal">&times;</span>
-            <div v-for="task in assignedTasks.tasks" :key="task.id">
-              {{ task }}
-            </div>
-          </div>
+      <div
+        class="document-row"
+        v-for="document in documentList.documents"
+        :key="document.id"
+      >
+        <div class="document-container">
+          {{ document.name }}
         </div>
         <div class="btn-container">
           <button class="btn" @click="toggleModal">Inzien</button>
@@ -21,24 +17,17 @@
       </div>
     </div>
   </div>
-
-  <modal-list />
 </template>
 
 <script>
-import assignedTasks from "@/data/AssignedTasks";
-// import ModalList from "./ModalList.vue";
+import documentList from "@/data/DocumentList";
 
 export default {
-  name: "AssignedTasks",
-
-  // components: {
-  //   ModalList,
-  // },
+  name: "ModalList",
 
   data() {
     return {
-      assignedTasks,
+      documentList,
     };
   },
 
@@ -57,28 +46,20 @@ export default {
 </script>
 
 <style scoped>
-span:hover {
-  cursor: pointer;
-}
-span {
-  font-size: 50px;
-  text-align: center;
-}
-
 .list {
   background-color: white;
   border-radius: 0.25rem;
   padding: 5px;
 }
 
-.task-row {
+.document-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--text);
 }
 
-.task-row:hover {
+.document-row:hover {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: 0.25rem;
   padding: 5px;
@@ -93,23 +74,5 @@ span {
   display: flex;
   justify-content: center;
   margin: 2px;
-}
-
-.modal {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  padding-block-start: 6.25rem;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: left;
-}
-
-.modal-content {
-  padding: 10px;
 }
 </style>
