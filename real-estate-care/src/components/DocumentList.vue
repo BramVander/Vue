@@ -16,13 +16,29 @@
       </div>
     </div>
   </div>
+
+  <modal-list prop="documentList" />
 </template>
 
 <script>
 import documentList from "@/data/DocumentList";
+import ModalList from "./ModalList.vue";
 
 export default {
   name: "DocumentList",
+
+  mounted() {
+    fetch("/data/DocumentList.js")
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      // .then((data) => (this.data = data))
+      .catch((err) => console.log(err.message));
+    // .catch(console.log(data));
+  },
+
+  components: {
+    ModalList,
+  },
 
   data() {
     return {

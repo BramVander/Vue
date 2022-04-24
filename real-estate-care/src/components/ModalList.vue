@@ -1,14 +1,10 @@
 <template>
   <div class="container">
-    <h1>Kies een Document</h1>
+    <h1>Modal list</h1>
     <div class="list">
-      <div
-        class="document-row"
-        v-for="document in documentList.documents"
-        :key="document.id"
-      >
+      <div class="document-row" v-for="item in prop.items" :key="item.id">
         <div class="document-container">
-          {{ document.name }}
+          {{ item.name }}
         </div>
         <div class="btn-container">
           <button class="btn" @click="toggleModal">Inzien</button>
@@ -20,15 +16,17 @@
 </template>
 
 <script>
-import documentList from "@/data/DocumentList";
+// import documentList from "@/data/DocumentList";
 
 export default {
   name: "ModalList",
 
-  data() {
-    return {
-      documentList,
-    };
+  props: {
+    prop: Object,
+  },
+
+  created() {
+    console.log(this.prop);
   },
 
   methods: {

@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <modal-list />
+  <modal-list prop="id, task" />
 </template>
 
 <script>

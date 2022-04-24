@@ -17,13 +17,20 @@
       </div>
     </div>
   </div>
+
+  <modal-list prop="executedReports" />
 </template>
 
 <script>
 import executedReports from "@/data/ExecutedReports";
+import ModalList from "./ModalList.vue";
 
 export default {
   name: "ExecutedReports",
+
+  components: {
+    ModalList,
+  },
 
   data() {
     return {
