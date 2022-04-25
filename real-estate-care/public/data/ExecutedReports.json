@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Uitgevoerd 1",
+    "file": "normbladen.pdf"
+  },
+  {
+    "id": 2,
+    "name": "Uitgevoerd 2",
+    "file": "testprocedures.pdf"
+  },
+  {
+    "id": 3,
+    "name": "Uitgevoerd 3",
+    "file": "handleiding.pdf"
+  },
+  {
+    "id": 4,
+    "name": "Uitgevoerd 4",
+    "file": "testprocedures.pdf"
+  },
+  {
+    "id": 5,
+    "name": "Uitgevoerd 5",
+    "file": "testprocedures.pdf"
+  }
+]

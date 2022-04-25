@@ -45,6 +45,15 @@ export default {
       alert(`modal opened https://vuejs.org/examples/#modal`);
     },
   },
+
+  // OMZETTEN NAAR SERVICE
+  // on page create we fetch the data
+  created() {
+    fetch("/data/ExecutedReports.json")
+      .then((response) => response.json())
+      .then((response) => console.log("response", response));
+    console.log("documentList", executedReports);
+  },
 };
 </script>
 

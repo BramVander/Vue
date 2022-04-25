@@ -27,15 +27,6 @@ import ModalList from "./ModalList.vue";
 export default {
   name: "DocumentList",
 
-  mounted() {
-    fetch("/data/DocumentList.js")
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      // .then((data) => (this.data = data))
-      .catch((err) => console.log(err.message));
-    // .catch(console.log(data));
-  },
-
   components: {
     ModalList,
   },
@@ -52,6 +43,15 @@ export default {
       e.preventDefault();
       alert(`modal opened https://vuejs.org/examples/#modal`);
     },
+  },
+
+  // OMZETTEN NAAR SERVICE
+  // on page create we fetch the data
+  created() {
+    fetch("/data/DocumentList.json")
+      .then((response) => response.json())
+      .then((response) => console.log("response", response));
+    console.log("documentList", documentList);
   },
 };
 </script>

@@ -41,6 +41,7 @@ export default {
   name: "LoginScreen",
 
   methods: {
+    // login function
     logIn(e) {
       e.preventDefault();
       // check username vs pin

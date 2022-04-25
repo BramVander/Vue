@@ -88,8 +88,7 @@ export default {
 }
 
 body {
-  font-family: "Poppins", sans-serif !important;
-  font-weight: 700 !important;
+  font-family: "Ubuntu Mono", monospace;
   color: var(--text);
 }
 

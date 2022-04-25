@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <modal-list prop="id, task" />
+  <modal-list :prop="assignedTasks" />
 </template>
 
 <script>
@@ -43,6 +43,7 @@ export default {
   },
 
   methods: {
+    // method to show modal
     toggleModal(e) {
       e.preventDefault();
       // get modal element
@@ -52,6 +53,15 @@ export default {
         ? (modal.style.display = "none")
         : (modal.style.display = "block");
     },
+  },
+
+  //  OMZETTEN NAAR SERVICE
+  // on page create we fetch the data
+  created() {
+    fetch("/data/AssignedTasks.json")
+      .then((response) => response.json())
+      .then((response) => console.log("response", response));
+    console.log("assignedTasks", assignedTasks);
   },
 };
 </script>
@@ -111,5 +121,9 @@ span {
 
 .modal-content {
   padding: 10px;
+}
+
+.modal-content span {
+  background-color: indianred;
 }
 </style>

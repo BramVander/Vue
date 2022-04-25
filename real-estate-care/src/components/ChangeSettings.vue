@@ -63,8 +63,8 @@ export default {
       }
     },
 
+    // method to change avatar
     changeAvatar(e) {
-      // change avatar function
       e.preventDefault();
       console.log(
         `document.getElementById("avatar").setAttribute('src', 'uploaded img path')`
