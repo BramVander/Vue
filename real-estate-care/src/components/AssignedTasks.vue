@@ -32,6 +32,10 @@ import ModalList from "./ModalList.vue";
 export default {
   name: "AssignedTasks",
 
+  prop: {
+    prop: Object,
+  },
+
   components: {
     ModalList,
   },
@@ -60,8 +64,9 @@ export default {
   created() {
     fetch("/data/AssignedTasks.json")
       .then((response) => response.json())
-      .then((response) => console.log("response", response));
-    console.log("assignedTasks", assignedTasks);
+      .then((response) => console.log("response", response))
+      .then((response) => (this.prop = response));
+    // console.log("assignedTasks", assignedTasks);
   },
 };
 </script>

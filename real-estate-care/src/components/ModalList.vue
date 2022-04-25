@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Modal list</h1>
     <div class="list">
-      <!-- <div class="document-row" v-for="item in prop.items" :key="item.id">
+      <div class="document-row" v-for="item in prop" :key="item.id">
         <div class="document-container">
           {{ item.name }}
         </div>
@@ -10,7 +10,7 @@
           <button class="btn" @click="toggleModal">Inzien</button>
           <button class="btn">Edit</button>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
