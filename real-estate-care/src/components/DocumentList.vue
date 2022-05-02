@@ -46,6 +46,7 @@ export default {
   },
 
   // on page create we fetch the data for documents
+  // and store it in this.documents
   mounted() {
     const documentList = new MyService();
     documentList.getDocuments().then((data) => {

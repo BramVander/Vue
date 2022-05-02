@@ -20,7 +20,8 @@ export default {
     };
   },
 
-  // on page create we fetch the data
+  // on page create we fetch the data for executed reports
+  // and store it in this.reports
   mounted() {
     const executedReports = new MyService();
     executedReports.getReports().then((data) => {

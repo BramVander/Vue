@@ -8,9 +8,9 @@
         <div id="modal" class="modal">
           <div class="modal-content">
             <span @click="toggleModal">&times;</span>
-            <!-- <div v-for="task in assignedTasks.tasks" :key="task.id"> -->
-            <!-- {{ task }} -->
-            <!-- </div> -->
+            <div v-for="item in prop" :key="item.id">
+              {{ item }}
+            </div>
           </div>
         </div>
         <div class="btn-container">

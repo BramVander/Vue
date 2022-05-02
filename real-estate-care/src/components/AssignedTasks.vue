@@ -47,6 +47,7 @@ export default {
   },
 
   // on page create we fetch the data for documents
+  // and store it in this.inspections
   mounted() {
     const assignedTasks = new MyService();
     assignedTasks.getInspections().then((data) => {
