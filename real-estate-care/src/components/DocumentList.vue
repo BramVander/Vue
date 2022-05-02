@@ -47,12 +47,11 @@ export default {
 
   // OMZETTEN NAAR SERVICE
   // on page create we fetch the data
-  created() {
-    fetch("/data/DocumentList.json")
-      .then((response) => response.json())
-      .then((response) => console.log("response", response));
-    console.log("documentList", documentList);
-  },
+  // created() {
+  //   fetch("/data/DocumentList.json").then((response) => response.json());
+  //   .then((response) => console.log("response", response));
+  //   console.log("documentList", documentList);
+  // },
 };
 </script>
 

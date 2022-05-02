@@ -18,12 +18,13 @@
     </div>
   </div>
 
-  <modal-list prop="executedReports" />
+  <modal-list :prop="executedReports" />
 </template>
 
 <script>
 import executedReports from "@/data/ExecutedReports";
 import ModalList from "./ModalList.vue";
+import MyService from "@/services/MyService";
 
 export default {
   name: "ExecutedReports",
@@ -46,13 +47,14 @@ export default {
     },
   },
 
-  // OMZETTEN NAAR SERVICE
   // on page create we fetch the data
-  created() {
-    fetch("/data/ExecutedReports.json")
-      .then((response) => response.json())
-      .then((response) => console.log("response", response));
-    console.log("documentList", executedReports);
+  mounted() {
+    const uitgevoerd = new MyService();
+    uitgevoerd.getInspections();
+    // console.log("MyService data");
+    // fetch("/data/ExecutedReports.json")
+    //   .then((response) => response.json())
+    //   .then((response) => console.log("response", response));
   },
 };
 </script>
