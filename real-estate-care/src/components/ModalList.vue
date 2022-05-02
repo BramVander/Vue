@@ -1,10 +1,17 @@
 <template>
   <div class="container">
-    <h1>Modal list</h1>
     <div class="list">
       <div class="document-row" v-for="item in prop" :key="item.id">
         <div class="document-container">
           {{ item.name }}
+        </div>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span @click="toggleModal">&times;</span>
+            <!-- <div v-for="task in assignedTasks.tasks" :key="task.id"> -->
+            <!-- {{ task }} -->
+            <!-- </div> -->
+          </div>
         </div>
         <div class="btn-container">
           <button class="btn" @click="toggleModal">Inzien</button>
@@ -66,5 +73,33 @@ export default {
   display: flex;
   justify-content: center;
   margin: 2px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding-block-start: 6.25rem;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.modal-content {
+  padding: 10px;
+}
+
+.modal-content span {
+  background-color: indianred;
+  font-size: 50px;
+  text-align: center;
+}
+
+span:hover {
+  cursor: pointer;
 }
 </style>

@@ -1,28 +1,9 @@
 <template>
-  <div class="container">
-    <h1>Uitgevoerde rapportages</h1>
-    <div class="list">
-      <div
-        class="report-row"
-        v-for="report in executedReports.reports"
-        :key="report.id"
-      >
-        <div class="report-container">
-          {{ report.name }}
-        </div>
-        <div class="btn-container">
-          <button class="btn" @click="openModal">Inzien</button>
-          <button class="btn">Edit</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <modal-list :prop="executedReports" />
+  <h1>Uitgevoerde rapportages</h1>
+  <modal-list :prop="this.reports" />
 </template>
 
 <script>
-import executedReports from "@/data/ExecutedReports";
 import ModalList from "./ModalList.vue";
 import MyService from "@/services/MyService";
 
@@ -35,26 +16,16 @@ export default {
 
   data() {
     return {
-      executedReports,
+      reports: [],
     };
-  },
-
-  methods: {
-    //  open document in modal
-    openModal(e) {
-      e.preventDefault();
-      alert(`modal opened https://vuejs.org/examples/#modal`);
-    },
   },
 
   // on page create we fetch the data
   mounted() {
-    const uitgevoerd = new MyService();
-    uitgevoerd.getInspections();
-    // console.log("MyService data");
-    // fetch("/data/ExecutedReports.json")
-    //   .then((response) => response.json())
-    //   .then((response) => console.log("response", response));
+    const executedReports = new MyService();
+    executedReports.getReports().then((data) => {
+      this.reports = data;
+    });
   },
 };
 </script>

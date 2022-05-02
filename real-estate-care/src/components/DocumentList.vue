@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <!-- <div class="container">
     <h1>Kies een Document</h1>
     <div class="list">
       <div
@@ -15,14 +15,14 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <modal-list prop="documentList" />
+  </div> -->
+  <h1>Documentenlijst</h1>
+  <modal-list :prop="this.documents" />
 </template>
 
 <script>
-import documentList from "@/data/DocumentList";
 import ModalList from "./ModalList.vue";
+import MyService from "@/services/MyService";
 
 export default {
   name: "DocumentList",
@@ -33,7 +33,7 @@ export default {
 
   data() {
     return {
-      documentList,
+      documents: [],
     };
   },
 
@@ -45,13 +45,13 @@ export default {
     },
   },
 
-  // OMZETTEN NAAR SERVICE
-  // on page create we fetch the data
-  // created() {
-  //   fetch("/data/DocumentList.json").then((response) => response.json());
-  //   .then((response) => console.log("response", response));
-  //   console.log("documentList", documentList);
-  // },
+  // on page create we fetch the data for documents
+  mounted() {
+    const documentList = new MyService();
+    documentList.getDocuments().then((data) => {
+      this.documents = data;
+    });
+  },
 };
 </script>
 
