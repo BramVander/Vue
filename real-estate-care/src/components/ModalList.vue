@@ -2,9 +2,12 @@
   <div class="container">
     <div class="list">
       <div class="document-row" v-for="item in prop" :key="item.id">
-        <div class="document-container">
+        <div>
           {{ item.name }}
         </div>
+        <!-- <div v-if="item.data.date">
+          {{ item.data.date }}
+        </div> -->
         <div id="modal" class="modal">
           <div class="modal-content">
             <span @click="toggleModal">&times;</span>

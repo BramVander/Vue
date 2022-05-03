@@ -115,6 +115,7 @@ export default {
   position: relative;
   bottom: 32px;
   left: 170px;
+  width: fit-content;
 }
 
 #eye:hover {
