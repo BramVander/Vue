@@ -58,9 +58,19 @@ export default {
   // and store it in this.inspections
   mounted() {
     const assignedTasks = new MyService();
-    assignedTasks.getInspections().then((data) => {
-      this.inspections = data;
-    });
+    assignedTasks
+      .getInspections()
+      .then((data) => {
+        this.inspections = data;
+      })
+      .then(
+        this.inspections.sort(function (a, b) {
+          let dateA = new Date(a.data.date);
+          let dateB = new Date(b.data.date);
+          return dateA - dateB;
+        })
+      )
+      .then(this.test);
   },
 };
 </script>
