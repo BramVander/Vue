@@ -7,8 +7,8 @@ module.exports = defineConfig({
 //   configureWebpack: {
 //     devServer: {
 //       headers: {
-//         'Access-Control-Allow-Origin': '*',
-// 	'X-Content-Type-Options': "nosniff"
+//          'Access-Control-Allow-Origin': '*',
+// 	        'X-Content-Type-Options': "nosniff"
 //       }
 //     }
 //   },

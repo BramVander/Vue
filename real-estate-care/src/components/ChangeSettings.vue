@@ -1,7 +1,7 @@
 <template>
+  <h1>Instellingen beheren</h1>
+  <p>Beheer hier je instellingen</p>
   <div class="container">
-    <h1>Instellingen beheren</h1>
-    <p>Beheer hier je instellingen</p>
     <div class="card">
       <form id="form-settings" action="">
         <div class="form-left">

@@ -1,13 +1,8 @@
 <template>
   <div class="container">
     <div class="list">
-      <div class="document-row" v-for="item in prop" :key="item.id">
-        <div>
-          {{ item.name }}
-        </div>
-        <!-- <div v-if="item.data.date">
-          {{ item.data.date }}
-        </div> -->
+      <div class="document-row">
+        <slot></slot>
         <div id="modal" class="modal">
           <div class="modal-content">
             <span @click="toggleModal">&times;</span>
@@ -15,10 +10,6 @@
               {{ item }}
             </div>
           </div>
-        </div>
-        <div class="btn-container">
-          <button class="btn" @click="toggleModal">Inzien</button>
-          <button class="btn">Edit</button>
         </div>
       </div>
     </div>
@@ -36,6 +27,7 @@ export default {
   methods: {
     toggleModal(e) {
       e.preventDefault();
+      console.log("clicked modal");
       // get modal element
       const modal = document.getElementById("modal");
       // open modal
@@ -52,30 +44,6 @@ export default {
   background-color: white;
   border-radius: 0.25rem;
   padding: 5px;
-}
-
-.document-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--text);
-}
-
-.document-row:hover {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  border-radius: 0.25rem;
-  padding: 5px;
-}
-
-.btn-container {
-  display: flex;
-  align-items: center;
-}
-
-.btn {
-  display: flex;
-  justify-content: center;
-  margin: 2px;
 }
 
 .modal {

@@ -221,6 +221,32 @@ footer {
   align-items: center;
 }
 
+/* if we write ModalList CSS here, we only have to write once */
+.list-row {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  justify-content: space-between;
+  color: var(--text);
+}
+
+.list-row:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 0.25rem;
+  padding: 5px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+
 /* hide logo on small screens */
 @media (max-width: 375px) {
   #logo {
