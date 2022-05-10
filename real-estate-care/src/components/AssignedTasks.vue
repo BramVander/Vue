@@ -63,6 +63,7 @@ export default {
       .then((data) => {
         this.inspections = data;
       })
+      // we sort for date
       .then(
         this.inspections.sort(function (a, b) {
           let dateA = new Date(a.data.date);
