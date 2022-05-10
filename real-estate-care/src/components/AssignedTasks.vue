@@ -8,7 +8,9 @@
         :key="inspection.id"
       >
         <div style="width: 50%">{{ inspection.name }}</div>
-        <div>{{ inspection.data.date }}</div>
+        <!-- refactor to function instead of inline. so {{ this.getSlicedTime() }} -->
+        <!-- we return the first 10 digits on inspection.data.date for YYYY-MM-DD -->
+        <div>{{ inspection.data.date.slice(0, 10) }}</div>
         <div class="btn-container">
           <button class="btn" @click="toggleModal">Inzien</button>
           <button class="btn" @click="test">Edit</button>
