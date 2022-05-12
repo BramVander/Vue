@@ -1,19 +1,24 @@
 <template>
   <h1>Documentenlijst</h1>
   <modal-list>
-    <div>
-      <div
-        class="list-row"
-        v-for="document in this.documents"
-        :key="document.id"
-      >
-        <div>{{ document.name }}</div>
-        <div class="btn-container">
-          <button class="btn" @click="toggleModal">Inzien</button>
-          <button class="btn">Edit</button>
+    <template v-slot:document>
+      <div>
+        <div
+          class="list-row"
+          v-for="document in this.documents"
+          :key="document.id"
+        >
+          <div>{{ document.name }}</div>
+          <div class="btn-container">
+            <button class="btn" @click="toggleModal">Inzien</button>
+            <button class="btn">Edit</button>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
+    <template v-slot:modal>
+      <div class="document-content"></div>
+    </template>
   </modal-list>
 </template>
 

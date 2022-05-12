@@ -2,13 +2,11 @@
   <div class="container">
     <div class="list">
       <div class="document-row">
-        <slot></slot>
+        <slot name="document"></slot>
         <div id="modal" class="modal">
           <div class="modal-content">
             <span @click="toggleModal">&times;</span>
-            <div v-for="item in prop" :key="item.id">
-              {{ item }}
-            </div>
+            <slot name="modal"></slot>
           </div>
         </div>
       </div>
@@ -20,17 +18,13 @@
 export default {
   name: "ModalList",
 
-  props: {
-    prop: Object,
-  },
-
   methods: {
+    // we need toggleModal for closing the modal. maybe refactor into service?
     toggleModal(e) {
       e.preventDefault();
-      console.log("clicked modal");
       // get modal element
       const modal = document.getElementById("modal");
-      // open modal
+      // show modal
       modal.style.display == "block"
         ? (modal.style.display = "none")
         : (modal.style.display = "block");
