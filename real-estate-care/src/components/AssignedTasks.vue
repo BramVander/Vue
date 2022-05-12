@@ -5,7 +5,7 @@
       <div>
         <div
           class="list-row"
-          v-for="inspection in this.inspections"
+          v-for="inspection in this.sortedInspections"
           :key="inspection.id"
           :data-inspection-id="inspection.id"
         >
@@ -33,12 +33,54 @@ import MyService from "@/services/MyService";
 export default {
   name: "AssignedTasks",
 
+  components: {
+    ModalList,
+  },
+
+  data() {
+    return {
+      inspections: [],
+      sortedInspections: [],
+    };
+  },
+
+  // compupted: {
+  //   sortInspections() {
+  //     this.sortedInspections = [...this.inspections];
+  //     this.sortedInspections.sort(function (a, b) {
+  //       let dateA = new Date(a.data.date);
+  //       let dateB = new Date(b.data.date);
+  //       return dateA - dateB;
+  //     });
+  //   },
+  // },
+
+  // on page mount we fetch the data for inspections
+  // and store it in this.inspections
+  mounted() {
+    const assignedTasks = new MyService();
+    assignedTasks
+      .getInspections()
+      .then((data) => {
+        this.inspections = data;
+      })
+      // we sort for date
+      .then(
+        this.inspections.sort(function (a, b) {
+          let dateA = new Date(a.data.date);
+          let dateB = new Date(b.data.date);
+          return dateA - dateB;
+        })
+      )
+      // sort fails so we execute sort function
+      .then(this.test);
+  },
+
   methods: {
     toggleModal(e) {
       e.preventDefault();
       // we get inspection id from dataset attribute
       const inspectionId = e.target.parentNode.parentNode.dataset.inspectionId;
-      console.log(inspectionId);
       // get modal element
       const modal = document.getElementById("modal");
       // show modal
@@ -64,6 +106,7 @@ export default {
       dateTemplate.innerHTML = dateSliced;
     },
 
+    // sort on mount fails, somehow works in function
     test() {
       if (!this.inspections) return;
       this.sortedInspections = [...this.inspections];
@@ -72,41 +115,9 @@ export default {
         let dateB = new Date(b.data.date);
         return dateA - dateB;
       });
-      console.log(JSON.parse(JSON.stringify(this.sortedInspections)));
-      console.log(JSON.parse(JSON.stringify(this.inspections)));
+      // console.log(JSON.parse(JSON.stringify(this.sortedInspections)));
+      // console.log(JSON.parse(JSON.stringify(this.inspections)));
     },
-  },
-
-  components: {
-    ModalList,
-  },
-
-  data() {
-    return {
-      inspections: [],
-      sortedInspections: [],
-    };
-  },
-
-  // on page create we fetch the data for documents
-  // and store it in this.inspections
-  mounted() {
-    const assignedTasks = new MyService();
-    assignedTasks
-      .getInspections()
-      .then((data) => {
-        this.inspections = data;
-      })
-      // we sort for date
-      .then(
-        this.inspections.sort(function (a, b) {
-          let dateA = new Date(a.data.date);
-          let dateB = new Date(b.data.date);
-          return dateA - dateB;
-        })
-      )
-      // sort fails so we execute sort function
-      .then(this.test);
   },
 };
 </script>
