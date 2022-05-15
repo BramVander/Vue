@@ -96,7 +96,7 @@ export default {
         : (modal.style.display = "block");
       // get inspection content element
       const inspectionContent = document.querySelector(".inspection-content");
-      // fetch the right inspection data
+      // fetch the right inspection data where id = index+1 in this.inspections
       const modalContent = Object.entries(
         this.inspections[inspectionId - 1].data
       );
