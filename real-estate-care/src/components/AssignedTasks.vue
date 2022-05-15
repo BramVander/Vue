@@ -59,21 +59,28 @@ export default {
   // and store it in this.inspections
   mounted() {
     const assignedTasks = new MyService();
-    assignedTasks
-      .getInspections()
-      .then((data) => {
-        this.inspections = data;
-      })
-      // we sort for date
-      .then(
-        this.inspections.sort(function (a, b) {
-          let dateA = new Date(a.data.date);
-          let dateB = new Date(b.data.date);
-          return dateA - dateB;
-        })
-      )
-      // sort fails so we execute sort function
-      .then(this.test);
+    assignedTasks.getInspections().then((data) => {
+      this.inspections = data;
+      // we need this.inspections to be immutable so we can search index with this.inspections[id-1]
+      // this.sortedInspections = [...this.inspections];
+      this.sortedInspections = this.inspections.slice();
+      this.sortedInspections = data.sort(function (a, b) {
+        let dateA = new Date(a.data.date);
+        let dateB = new Date(b.data.date);
+        return dateA - dateB;
+      });
+      console.log(this.inspections);
+    });
+    // we sort for date
+    // .then(
+    //   this.inspections.sort(function (a, b) {
+    //     let dateA = new Date(a.data.date);
+    //     let dateB = new Date(b.data.date);
+    //     return dateA - dateB;
+    //   })
+    // )
+    // // sort fails so we execute sort function
+    // .then(this.test);
   },
 
   methods: {

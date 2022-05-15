@@ -41,7 +41,7 @@ export default {
 
   methods: {
     // open document in modal
-    openModal(e) {
+    toggleModal(e) {
       e.preventDefault();
       alert(`modal opened https://vuejs.org/examples/#modal`);
     },
