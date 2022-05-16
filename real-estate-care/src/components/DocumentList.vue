@@ -9,10 +9,7 @@
           :key="document.id"
         >
           <div>{{ document.name }}</div>
-          <div class="btn-container">
-            <button class="btn" @click="toggleModal">Inzien</button>
-            <button class="btn">Edit</button>
-          </div>
+          <button class="btn" @click="toggleModal">Inzien</button>
         </div>
       </div>
     </template>

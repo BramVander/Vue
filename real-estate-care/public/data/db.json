@@ -59,6 +59,18 @@
         "urgent": "radio",
         "price": "0-500, 500-1500, 1500+"
       }
+    },
+    {
+      "id": 6,
+      "name": "Test",
+      "data": {
+        "date": "1981-04-06T18:25:43.511Z",
+        "location": "Eindhoven",
+        "type": "moedwillig",
+        "urgent": true,
+        "description": "tekstveld",
+        "price": 420
+      }
     }
   ],
 

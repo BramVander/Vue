@@ -6,7 +6,16 @@
         <div id="modal" class="modal">
           <div class="modal-content">
             <span @click="toggleModal">&times;</span>
-            <slot name="modal"></slot>
+            <div style="display: flex; flex-direction: row">
+              <slot name="modal"></slot>
+              <button
+                class="btn"
+                style="width: 100%; align-items: center"
+                @click="editInspection"
+              >
+                edit
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -28,6 +37,16 @@ export default {
       modal.style.display == "block"
         ? (modal.style.display = "none")
         : (modal.style.display = "block");
+    },
+
+    editInspection(e) {
+      e.preventDefault();
+      // get input elements
+      let inspectionInput = document.getElementsByClassName("inspection-input");
+      // for each element remove disabled attribute
+      for (let i = 0; i < inspectionInput.length; i++) {
+        inspectionInput[i].removeAttribute("disabled");
+      }
     },
   },
 };
@@ -62,6 +81,7 @@ export default {
   background-color: indianred;
   font-size: 50px;
   text-align: center;
+  border-radius: 5px;
 }
 
 span:hover {

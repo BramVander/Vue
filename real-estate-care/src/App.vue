@@ -127,7 +127,7 @@ input {
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: nowrap;
   max-height: 150px;
 }
@@ -248,13 +248,13 @@ footer {
 }
 
 /* hide logo on small screens */
-@media (max-width: 375px) {
+@media (max-width: 575px) {
   #logo {
     display: none;
   }
 
   .nav {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .nav-item {
