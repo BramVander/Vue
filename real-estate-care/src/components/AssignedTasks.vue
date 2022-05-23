@@ -84,10 +84,34 @@ export default {
       // get inspection content element
       const inspectionContent = document.querySelector(".inspection-content");
       // fetch the right inspection data where id - 1 = index in this.inspections
-      const modalContent = Object.values(
+      const modalContent = Object.entries(
         this.inspections[inspectionId - 1].data
       );
       // create template with inspection data
+
+      // IK KOM HIER NIET UIT, ELKE INSPECTIE HEEFT ANDERE PROPERTIES DIE WEER ANDERE ELEMENTS VRAGEN
+
+      // let template = `
+      //   <input class="inspection-input" disabled type="date" value="${modalContent[0][1].slice(
+      //     0,
+      //     10
+      //   )}">
+      //   <textarea class="inspection-input" disabled type="text">${
+      //     modalContent[1][1]
+      //   }</textarea>
+      //   <input class="inspection-input" type="radio" value="${
+      //     modalContent.newDamage
+      //   }">
+      //   <input class="inspection-input" type="text" value="${
+      //     modalContent.type
+      //   }">
+      //   <input class="inspection-input" value="${modalContent.urgent}">
+      //   <textarea class="inspection-input" type="date" value="${
+      //     modalContent.description
+      //   }">
+      //   `;
+
+      // we loop through inspection.entries (=modalContent) and summon an input element for each property with the value set according to the inspection
       let template = "";
       for (let i = 0; i < modalContent.length; i++) {
         template += `<input class="inspection-input" disabled value="${modalContent[i]}"</div>`;

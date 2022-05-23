@@ -113,7 +113,8 @@ body {
   text-align: left;
 }
 
-input {
+input,
+textarea {
   border: 1px solid var(--cyan);
   border-radius: 0.25rem;
   color: var(--cyan);
