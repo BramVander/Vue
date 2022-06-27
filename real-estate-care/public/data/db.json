@@ -6,9 +6,9 @@
       "data": {
         "date": "1990-05-11T18:25:43.511Z",
         "location": "tekstveld",
-        "newDamage": "true",
+        "newDamage": false,
         "type": "keuzelijst: moedwillig, slijtage, geweld, normaal gebruik, calamiteit, anders",
-        "urgent": "radio",
+        "urgent": true,
         "description": "tekstveld"
       }
     },

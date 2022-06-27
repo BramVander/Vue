@@ -87,35 +87,84 @@ export default {
       const modalContent = Object.entries(
         this.inspections[inspectionId - 1].data
       );
+
+      // schade opnemen
+      // locatie: textveld;
+      // nieuwe schade: radio button;
+      // soort schade: keuzelijst;
+      // datum: input date;
+      // urget: radio
+      // omschrijving: textveld
+
+      // achterstallig onderhoud openemen
+      // locatie: textveld;
+      // soort onderhoud: keuzelijst;
+      // acute actie vereist: radio button;
+      // kosten indicatie: 0-500, 500-1500, 1500+;
+
+      // technische installaties inspecteren
+      // locatie: textveld;
+      // soort installatie: lijst;
+      // gemelde storingen: textveld;
+      // testprocedure: pdf.file;
+      // goedgekeurd: radio;
+      // opmerkingen: textarea,
+
+      // modificatie inventariseren
+      // bestaande + gedocumenteerde modifacties: pfd.file;
+      // locatie aangetroffen modificatie.
+      // uitgevoerd door (lijst);
+      // beschrijving modificatie: textveld;
+      // te ondernemen actie: keuzelijst;
+      // opmerkingen: textveld;
+
+      console.log("modalContent", modalContent);
       // create template with inspection data
+      let template = `
+              <label>Datum</label>
+              <input class="inspection-input" type="date" value="${modalContent[0][1].slice(
+                0,
+                10
+              )}">
 
-      // IK KOM HIER NIET UIT, ELKE INSPECTIE HEEFT ANDERE PROPERTIES DIE WEER ANDERE ELEMENTS VRAGEN
+              <label>Locatie</label>
+              <textarea v-if="${
+                modalContent[1] == "location"
+              } class="inspection-input" type="text">${modalContent[1][1]}
+              </textarea>
 
-      // let template = `
-      //   <input class="inspection-input" disabled type="date" value="${modalContent[0][1].slice(
-      //     0,
-      //     10
-      //   )}">
-      //   <textarea class="inspection-input" disabled type="text">${
-      //     modalContent[1][1]
-      //   }</textarea>
-      //   <input class="inspection-input" type="radio" value="${
-      //     modalContent.newDamage
-      //   }">
-      //   <input class="inspection-input" type="text" value="${
-      //     modalContent.type
-      //   }">
-      //   <input class="inspection-input" value="${modalContent.urgent}">
-      //   <textarea class="inspection-input" type="date" value="${
-      //     modalContent.description
-      //   }">
-      //   `;
+              <label>Nieuwe schade</label>
+              <input class="inspection-input" type="radio" ${
+                modalContent[2][1] ? "checked" : ""
+              }">
+
+              <label>Type schade</label>
+              <input list="type" name="type">
+              <datalist id="type">
+                <option value="moedwillig">
+                <option value="slijtage">
+                <option value="geweld">
+                <option value="normaal gebruik">
+                <option value="calamiteit">
+                <option value="anders">
+              </datalist>
+
+              <label>Urgent</label>
+              <input class="inspection-input" type="radio" checked="${
+                modalContent[4][1]
+              }">
+
+              <label>Beschrijving</label>
+              <input class="inspection-input" type="text" value="${
+                modalContent[5][1]
+              }">
+            `;
 
       // we loop through inspection.entries (=modalContent) and summon an input element for each property with the value set according to the inspection
-      let template = "";
-      for (let i = 0; i < modalContent.length; i++) {
-        template += `<input class="inspection-input" disabled value="${modalContent[i]}"</div>`;
-      }
+      // let template = "";
+      // for (let i = 0; i < modalContent.length; i++) {
+      //   template += `<input class="inspection-input" disabled value="${modalContent[i]}"</div>`;
+      // }
       // fill modal with inspection data
       inspectionContent.innerHTML = template;
     },
