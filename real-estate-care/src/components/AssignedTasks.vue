@@ -119,14 +119,19 @@ export default {
       // create template with inspection data
       let template = `
               <label>Datum</label>
-              <input class="inspection-input" :v-if="${
+              <input class="inspection-input" v-if="${
                 modalContent.date
+              }" type="date" value="${modalContent.date.slice(0, 10)}">
+
+                            <label>Datum</label>
+              <input class="inspection-input" v-if="${
+                modalContent.dateeeeeeeeeeeee
               }" type="date" value="${modalContent.date.slice(0, 10)}">
 
               <label>Locatie</label>
               <textarea v-if="${
                 modalContent.location
-              } class="inspection-input" type="text">${modalContent.location}
+              }" class="inspection-input" type="text">${modalContent.location}
               </textarea>
 
               <label>Nieuwe schade</label>
