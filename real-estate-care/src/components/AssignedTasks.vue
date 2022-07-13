@@ -84,9 +84,7 @@ export default {
       // get inspection content element
       const inspectionContent = document.querySelector(".inspection-content");
       // fetch the right inspection data where id - 1 = index in this.inspections
-      const modalContent = Object.entries(
-        this.inspections[inspectionId - 1].data
-      );
+      const modalContent = this.inspections[inspectionId - 1].data;
 
       // schade opnemen
       // locatie: textveld;
@@ -118,24 +116,30 @@ export default {
       // te ondernemen actie: keuzelijst;
       // opmerkingen: textveld;
 
-      console.log("modalContent", modalContent);
       // create template with inspection data
       let template = `
               <label>Datum</label>
-              <input class="inspection-input" type="date" value="${modalContent[0][1].slice(
-                0,
-                10
-              )}">
+              <input class="inspection-input" v-if="${
+                modalContent.date
+              }" type="date" value="${modalContent}">
+
+              <input class="inspection-input" v-if="modalContent.date">
+
+              <input class="inspection-input" v-show="modalContent.date">
+              <input class="inspection-input" v-show="${modalContent.date}">
+
+              <input class="inspection-input" v-show="modalContent.dateeeee">
+              <input class="inspection-input" v-show="${modalContent.dateeee}">
 
               <label>Locatie</label>
               <textarea v-if="${
-                modalContent[1] == "location"
-              } class="inspection-input" type="text">${modalContent[1][1]}
+                modalContent.location
+              } class="inspection-input" type="text">${modalContent.location}
               </textarea>
 
               <label>Nieuwe schade</label>
               <input class="inspection-input" type="radio" ${
-                modalContent[2][1] ? "checked" : ""
+                modalContent.newDamage ? "checked" : ""
               }">
 
               <label>Type schade</label>
@@ -151,12 +155,12 @@ export default {
 
               <label>Urgent</label>
               <input class="inspection-input" type="radio" checked="${
-                modalContent[4][1]
+                modalContent.urgent
               }">
 
               <label>Beschrijving</label>
               <input class="inspection-input" type="text" value="${
-                modalContent[5][1]
+                modalContent.description
               }">
             `;
 
