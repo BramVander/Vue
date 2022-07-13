@@ -9,7 +9,7 @@
         "newDamage": false,
         "type": "keuzelijst: moedwillig, slijtage, geweld, normaal gebruik, calamiteit, anders",
         "urgent": true,
-        "description": "tekstveld"
+        "description": "tekstveld met beschrijving blablabla lorem10"
       }
     },
     {
@@ -68,7 +68,7 @@
         "location": "Eindhoven",
         "type": "moedwillig",
         "urgent": true,
-        "description": "tekstveld",
+        "description": "tekstveld blablabla lorem ipsum",
         "price": 420
       }
     }

@@ -119,17 +119,9 @@ export default {
       // create template with inspection data
       let template = `
               <label>Datum</label>
-              <input class="inspection-input" v-if="${
+              <input class="inspection-input" :v-if="${
                 modalContent.date
-              }" type="date" value="${modalContent}">
-
-              <input class="inspection-input" v-if="modalContent.date">
-
-              <input class="inspection-input" v-show="modalContent.date">
-              <input class="inspection-input" v-show="${modalContent.date}">
-
-              <input class="inspection-input" v-show="modalContent.dateeeee">
-              <input class="inspection-input" v-show="${modalContent.dateeee}">
+              }" type="date" value="${modalContent.date.slice(0, 10)}">
 
               <label>Locatie</label>
               <textarea v-if="${
@@ -143,7 +135,7 @@ export default {
               }">
 
               <label>Type schade</label>
-              <input list="type" name="type">
+              <input list="type" name="type" placeholder="Selecteer een type...">
               <datalist id="type">
                 <option value="moedwillig">
                 <option value="slijtage">
@@ -164,11 +156,6 @@ export default {
               }">
             `;
 
-      // we loop through inspection.entries (=modalContent) and summon an input element for each property with the value set according to the inspection
-      // let template = "";
-      // for (let i = 0; i < modalContent.length; i++) {
-      //   template += `<input class="inspection-input" disabled value="${modalContent[i]}"</div>`;
-      // }
       // fill modal with inspection data
       inspectionContent.innerHTML = template;
     },
