@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <h1>Modal</h1>
+    <div>{{ this.currentInspection }}</div>
+
     <label>Locatie</label>
     <textarea class="inspection-input" type="text" value="test"></textarea>
 
