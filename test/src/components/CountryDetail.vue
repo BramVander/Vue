@@ -31,16 +31,24 @@
         </span>
       </li>
     </ul>
+    <div>
+      <h2>Details</h2>
+    </div>
   </div>
 </template>
 
 <script>
 import mixins from "../mixins/mixins";
+import countryData from "../data/CountryData";
 
 export default {
   name: "CountryDetail",
-  props: ["country"],
   mixins: [mixins],
+  data() {
+    return {
+      countryData,
+    };
+  },
   computed: {
     isExpensive() {
       return this.country.cost > 4000;
@@ -56,6 +64,14 @@ export default {
     },
   },
   emits: ["rating"],
+
+  created() {
+    this.id = this.$route.params.id;
+    this.name = this.$route.params.id;
+    this.country = this.countryData.countries.find(
+      (country) => country.id === +this.id
+    );
+  },
 };
 </script>
 

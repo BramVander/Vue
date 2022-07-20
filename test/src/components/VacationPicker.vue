@@ -4,10 +4,16 @@
     <div class="row">
       <div class="col-6">
         <ul class="list-group">
-          <li
+          <!-- <li
             class="list-group-item"
             @click="selectCountry(index)"
             v-for="(country, index) in countryData.countries"
+            v-bind:key="country.id"
+          > -->
+          <li
+            class="list-group-item"
+            @click="showCountry(country)"
+            v-for="country in countryData.countries"
             v-bind:key="country.id"
           >
             {{ country.id }} -
@@ -19,7 +25,7 @@
         </ul>
         <hr />
       </div>
-      <div class="col-6">
+      <!-- <div class="col-6">
         <CollapsibleSection>
           <CountryDetail
             v-if="selectedCountry"
@@ -27,7 +33,7 @@
             :country="selectedCountry"
           />
         </CollapsibleSection>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -35,12 +41,12 @@
 <script>
 import countryData from "../data/CountryData";
 import mixins from "../mixins/mixins";
-import CountryDetail from "./CountryDetail";
-import CollapsibleSection from "./shared/CollapsibleSection";
+// import CountryDetail from "./CountryDetail";
+// import CollapsibleSection from "./shared/CollapsibleSection";
 
 export default {
   name: "VacationPicker",
-  components: { CountryDetail, CollapsibleSection },
+  components: {},
   mixins: [mixins],
   data() {
     return {
@@ -54,6 +60,17 @@ export default {
     };
   },
   methods: {
+    showCountry(country) {
+      console.log("nav naar", country.name);
+      this.$router.push({
+        name: "detail",
+        params: {
+          id: country.id,
+          name: country.name,
+        },
+      });
+    },
+
     selectCountry(index) {
       this.selectedCountryIndex = index;
     },
