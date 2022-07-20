@@ -10,7 +10,6 @@
           :data-inspection-id="inspection.id"
         >
           <div style="width: 50%">{{ inspection.name }}</div>
-          <!-- refactor to function instead of inline. so {{ this.getSlicedTime() }} -->
           <!-- we return the first 10 digits on inspection.data.date for YYYY-MM-DD -->
           <div>{{ inspection.data.date.slice(0, 10) }}</div>
           <button class="btn" @click="toggleModal">Inzien</button>
@@ -59,8 +58,8 @@ export default {
     const assignedTasks = new MyService();
     assignedTasks.getInspections().then((data) => {
       this.inspections = data;
+      console.log("inspections", this.inspections);
       // we need this.inspections to be immutable so we can search index with this.inspections[id-1]
-      // this.sortedInspections = this.inspections.slice();
       this.sortedInspections = data.slice();
       this.sortedInspections.sort(function (a, b) {
         let dateA = new Date(a.data.date);
@@ -118,48 +117,55 @@ export default {
 
       // create template with inspection data
       let template = `
-              <label>Datum</label>
-              <input class="inspection-input" v-if="${
-                modalContent.date
-              }" type="date" value="${modalContent.date.slice(0, 10)}">
+        <template :v-if="${modalContent.location}">
+          <label>locatie</label>
+          <input class="inspection-input" type="text" value="${
+            modalContent.location
+          }">
+        </template>
 
-                            <label>Datum</label>
-              <input class="inspection-input" v-if="${
-                modalContent.dateeeeeeeeeeeee
-              }" type="date" value="${modalContent.date.slice(0, 10)}">
+        <div :v-if="${modalContent.description != undefined}">
+          <label>Beschrijving</label>
+          <input class="inspection-input" type="text" value="${
+            modalContent.description
+          }">
+        </div>
 
-              <label>Locatie</label>
-              <textarea v-if="${
-                modalContent.location
-              }" class="inspection-input" type="text">${modalContent.location}
-              </textarea>
+        <label>Locatie</label>
+        <textarea v-if="${
+          modalContent.location != undefined
+        }" class="inspection-input" type="text">${modalContent.location}
+        </textarea>
 
-              <label>Nieuwe schade</label>
-              <input class="inspection-input" type="radio" ${
-                modalContent.newDamage ? "checked" : ""
-              }">
+        <template v-if="${modalContent.newDamage != undefined}">
+          <label>Nieuwe schade</label>
+          <input class="inspection-input" type="radio" ${
+            modalContent.newDamage ? "checked" : ""
+          }">
+        </template>
 
-              <label>Type schade</label>
-              <input list="type" name="type" placeholder="Selecteer een type...">
-              <datalist id="type">
-                <option value="moedwillig">
-                <option value="slijtage">
-                <option value="geweld">
-                <option value="normaal gebruik">
-                <option value="calamiteit">
-                <option value="anders">
-              </datalist>
 
-              <label>Urgent</label>
-              <input class="inspection-input" type="radio" checked="${
-                modalContent.urgent
-              }">
+        <label>Type schade</label>
+        <input list="type" name="type" placeholder="Selecteer een type...">
+        <datalist id="type">
+          <option value="moedwillig">
+          <option value="slijtage">
+          <option value="geweld">
+          <option value="normaal gebruik">
+          <option value="calamiteit">
+          <option value="anders">
+        </datalist>
 
-              <label>Beschrijving</label>
-              <input class="inspection-input" type="text" value="${
-                modalContent.description
-              }">
-            `;
+        <label>Urgent</label>
+        <input class="inspection-input" type="radio" checked="${
+          modalContent.urgent
+        }">
+
+        <label>Beschrijving</label>
+        <input class="inspection-input" type="text" value="${
+          modalContent.description
+        }">
+      `;
 
       // fill modal with inspection data
       inspectionContent.innerHTML = template;

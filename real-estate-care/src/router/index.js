@@ -6,6 +6,8 @@ import DocumentList from "@/components/DocumentList";
 import ChangeSettings from "@/components/ChangeSettings";
 import ExecutedReports from "@/components/ExecutedReports";
 import AssignedTasks from "@/components/AssignedTasks";
+import LijstComponent from "@/components/playground/LijstComponent";
+import ModalComponent from "@/components/playground/ModalComponent";
 
 const routes = [
   {
@@ -17,6 +19,16 @@ const routes = [
     path: "/assigned-tasks",
     name: "assigned-tasks",
     component: AssignedTasks,
+  },
+  {
+    path: "/lijst",
+    name: "lijst",
+    component: LijstComponent,
+  },
+  {
+    path: "/detail/:id",
+    name: "detail",
+    component: ModalComponent,
   },
   {
     path: "/dashboard",
