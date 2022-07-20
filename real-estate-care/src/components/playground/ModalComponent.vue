@@ -2,9 +2,10 @@
   <div class="container">
     <h1>Modal</h1>
     <div>{{ this.currentInspection }}</div>
-
-    <label>Locatie</label>
-    <textarea class="inspection-input" type="text" value="test"></textarea>
+    <div>{{ this.currentInspection.id }}</div>
+    <div>{{ this.currentInspection.data }}</div>
+    <!-- <div>{{ this.currentInspection.data.date }}</div> -->
+    <!-- <div>{{ this.currentInspection.data.location }}</div> -->
 
     <label>Locatie</label>
     <textarea class="inspection-input" type="text" value="test"></textarea>
