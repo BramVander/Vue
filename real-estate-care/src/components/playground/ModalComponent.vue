@@ -2,34 +2,10 @@
   <div class="container">
     <h1>Modal</h1>
     <div>{{ this.currentInspection }}</div>
-    <div>{{ this.currentInspection.id }}</div>
-    <div>{{ this.currentInspection.data }}</div>
-    <!-- <div>{{ this.currentInspection.data.date }}</div> -->
+    <!-- <div>{{ this.currentInspection.id }}</div> -->
+    <!-- <div>{{ this.currentInspection["data"] }}</div> -->
+    <!-- <div>{{ this.currentInspection["data"] }}</div> -->
     <!-- <div>{{ this.currentInspection.data.location }}</div> -->
-
-    <label>Locatie</label>
-    <textarea class="inspection-input" type="text" value="test"></textarea>
-
-    <label>Nieuwe schade</label>
-    <input class="inspection-input" type="radio" checked />
-
-    <label>Type schade</label>
-    <input list="type" name="type" placeholder="Selecteer een type..." />
-    <datalist id="type">
-      <option value="moedwillig"></option>
-      <option value="slijtage"></option>
-      <option value="geweld"></option>
-      <option value="normaal gebruik"></option>
-      <option value="calamiteit"></option>
-      <option value="anders">anders</option>
-    </datalist>
-
-    <label>Beschrijving</label>
-    <input
-      class="inspection-input"
-      type="text"
-      value="modalContent.description"
-    />
   </div>
 </template>
 
@@ -40,6 +16,7 @@ export default {
   data() {
     return {
       currentInspection: [],
+      data: [],
     };
   },
 

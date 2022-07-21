@@ -10,7 +10,7 @@
     >
       <div style="width: 50%">{{ inspection.name }}</div>
       <!-- we return the first 10 digits on inspection.data.date for YYYY-MM-DD -->
-      <div>{{ inspection.data.date.slice(0, 10) }}</div>
+      <!-- <div>{{ inspection.data.date.slice(0, 10) }}</div> -->
     </div>
   </div>
 </template>
